@@ -14,22 +14,22 @@ function\s+\( ## space between function and (
 RULES;
 
 
-function removeComments($sRule) {
+function removeComments( $sRule ) {
     $iPos = strpos( $sRule, ' ##' );
     if ( $iPos !== FALSE ) {
-        $sRule = substr($sRule, 0, $iPos);
+        $sRule = substr( $sRule, 0, $iPos );
     }
-    return trim( $sRule);
+    return trim( $sRule );
 }
 
 $aRules = explode( PHP_EOL, $sRules );
-$regexp = implode( '|', array_map( "removeComments", $aRules ));
+$regexp = implode( '|', array_map( "removeComments", $aRules ) );
 $sContent = <<<EOT
 #!/bin/bash
 # Naive js style checker
 grep -rnP --color "{$regexp}" $1
 EOT;
 
-$sFilename = dirname(__FILE__) . '/wikia_js_check.sh';
+$sFilename = dirname( __FILE__ ) . '/wikia_js_check.sh';
 file_put_contents( $sFilename, $sContent );
 echo $sFilename . PHP_EOL;
