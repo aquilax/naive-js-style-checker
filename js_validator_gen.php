@@ -9,6 +9,8 @@ $sRules = <<<'RULES'
 [\t ]+$ ## tailing space
 ^\s*\}[\s]+\); ## } );
 \s+; ## _;
+function\s+\( ## space between function and (
+^\s+$ ## all whitespace line
 RULES;
 
 
