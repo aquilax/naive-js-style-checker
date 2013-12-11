@@ -3,11 +3,11 @@
 $sRules = <<<'RULES'
 \([^\s\)] ## (C
 [^\s\(\}]\) ## C)
-\[[^\s\]] ## [C
-[^\s\[]\] ## C]
+\[[\s\]] ## [ C
+[\s\[]\] ## C ]
 ^[ ]+ ## leading space
 [\t ]+$ ## tailing space
-^\s*\}[\s]+\); ## } );
+^\s*\}\); ## });
 \s+; ## _;
 function\s+\( ## space between function and (
 ^\s+$ ## all whitespace line
